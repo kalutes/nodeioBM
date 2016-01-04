@@ -49,7 +49,7 @@ var server = http.createServer(function (request, response) {
 server.listen(port);
 var listerner = io.listen(server);
 listerner.sockets.on('connection', function (socket) {
-    console.log('We got a connection');
+   // console.log('We got a connection');
     socket.emit('message', {'message': 'Hi this is Nawfal from Socket IO and the time right now is :' + Date.now()});
 
     socket.on('client_data', function (data) {
