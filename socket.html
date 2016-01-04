@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>This is Socket.io</title>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.js"></script>
+</head>
+<body>
+
+<div id="div1"> </div>
+<textarea id="text"></textarea>
+<script>
+    var socket = io.connect();
+    socket.on('message',function(data){
+        console.log(data.message);
+        document.getElementById('div1').innerHTML=data.message;
+    });
+
+    $('#text').keypress(function(e){
+        socket.emit('client_data',{'letter': String.fromCharCode(e.charCode)});
+        console.log(String.fromCharCode(e.charCode));
+    });
+
+</script>
+
+
+</body>
+</html>
