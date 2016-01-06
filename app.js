@@ -8,7 +8,8 @@ var port = 8001;
 var http = require('http');
 var url  = require('url');
 var fs   = require('fs');
-var io   = require('socket.io')
+var io   = require('socket.io');
+var pounchdb=require('pouchdb');
 var i    = 0;
 
 var server = http.createServer(function (request, response) {
